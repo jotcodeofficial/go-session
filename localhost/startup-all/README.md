@@ -1,0 +1,1 @@
+This will start up both mongo-service-localhost and redis-service-localhost at once.

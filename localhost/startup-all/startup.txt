@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd ../mongo-service-localhost
+docker kill mongo-localhost
+docker build  -f Dockerfile -t mongo-localhost .
+docker container run --env-file mongo-localhost-auth.env --publish 27017:27017 -d mongo-localhost
+
+cd ../redis-service-localhost
+docker kill redis-localhost
+docker build  -f Dockerfile -t redis-localhost .
+docker container run   --publish 6379:6379 -d redis-localhost
